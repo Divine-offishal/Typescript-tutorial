@@ -28,7 +28,12 @@ You can declare a type explicitly and make sure that you cant reassign a differe
 
   ### UNION
   This is used to declare a mixed type in an array or a variable. It means that a variable or array can be any of the type specified by the union e.g
-    ```
-    let uid: string|number;
-    let mixed: (string|number)[] = []
-    ```
+
+  ```
+  let uid: string|number;
+  let mixed: (string|number)[] = []
+  ```
+
+  ### ANY
+  - This will initialize a variable, array or object to use any type but this removes the benefits of typescript so, use sparingly
+  `let age: any`
