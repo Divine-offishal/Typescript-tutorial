@@ -37,3 +37,8 @@ You can declare a type explicitly and make sure that you cant reassign a differe
   ### ANY
   - This will initialize a variable, array or object to use any type but this removes the benefits of typescript so, use sparingly
   `let age: any`
+
+## Configurations
+- If you want to configure seperate folders for compilations, i.e compile ts in src folder to js in public folder, run the command `tsc --init` This will create a tsconfig.json file which will be used for configurations
+- Find the "rootDir" option and specify your src folder path, then find the "outDir" and specify your public folder
+- If you don't want the compiler to compile files outside the src folder, you can add an "include" option after the config object and specify src folders `"include": ["src"]`
