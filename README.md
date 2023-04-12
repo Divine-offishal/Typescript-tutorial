@@ -16,9 +16,19 @@ You can declare a type explicitly and make sure that you cant reassign a differe
   `let ninjas: string[] = []`
 
   ### OBJECTS 
-    For objects, you will only delare types for the properties in the object e.g
-    ``let ninja2: {
+  For objects, you will only delare types for the properties in the object e.g
+
+    ```
+    let ninja2: {
       name: string;
       age: number;
       beltColor: string
-    }``
+    }
+    ```
+
+  ### UNION
+  This is used to declare a mixed type in an array or a variable. It means that a variable or array can be any of the type specified by the union e.g
+    ```
+    let uid: string|number;
+    let mixed: (string|number)[] = []
+    ```
