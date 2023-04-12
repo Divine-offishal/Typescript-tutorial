@@ -65,3 +65,16 @@ _You can only use either a default value or an optional parameter_
 }
 ```
 _A function returns void as default_
+
+
+## TYPE ALIASES
+- Instead of always declearing types, you can declare type alias once and use it everywhere e.g
+```
+  type StringOrNum = number|string;
+
+  type objWithName = {name: string, id: StringOrNum}
+
+  const greet = (user: objWithName) => {
+    console.log()
+  }
+```

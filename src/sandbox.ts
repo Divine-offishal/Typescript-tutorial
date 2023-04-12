@@ -1,12 +1,8 @@
-let greet: Function;
 
-greet = () => {
-  console.log('hello')
+type StringOrNum = number|string;
+
+type objWithName = {name: string, id: StringOrNum}
+
+const greet = (user: objWithName) => {
+  console.log()
 }
-
-const add = (a: number, b: number, c: number|string = 10): number => {
-  const add = a + b
-  return add
-}
-
-add(5, 10);
