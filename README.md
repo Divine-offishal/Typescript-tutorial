@@ -42,3 +42,26 @@ You can declare a type explicitly and make sure that you cant reassign a differe
 - If you want to configure seperate folders for compilations, i.e compile ts in src folder to js in public folder, run the command `tsc --init` This will create a tsconfig.json file which will be used for configurations
 - Find the "rootDir" option and specify your src folder path, then find the "outDir" and specify your public folder
 - If you don't want the compiler to compile files outside the src folder, you can add an "include" option after the config object and specify src folders `"include": ["src"]`
+
+## Functions
+- To declare a function type, you can add a column after the variable and add Function e.g 
+`let greet: Function;`
+- To declare parameters inside a function,
+
+```const add = (a: number, b: number, c: number|string = 10) => {
+  const add = a + b
+}
+```
+
+- To add an optional parameter, use the question mark symbol after the parameter e.g `c?: number|string`
+- To add a parameter with a default parameter value, `c: number|string = 10`
+_You can only use either a default value or an optional parameter_
+
+- To explicity define a function return type, add a column after the first parenthesis and delare e.g 
+```
+  const add = (a: number, b: number, c: number|string = 10): number => {
+  const add = a + b
+  return add
+}
+```
+_A function returns void as default_
