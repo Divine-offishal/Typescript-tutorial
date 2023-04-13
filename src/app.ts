@@ -1,27 +1,33 @@
 
 import { Invoice } from './Classes/invoice.js'
+import { listTemplate } from './Classes/listTemplate.js'
 import { Payment} from './Classes/payment.js'
-import { HasFormatter } from './Interfaces/HasFormatter'
+import { HasFormatter } from './Interfaces/HasFormatter.js'
 
-let docOne: HasFormatter
-let docTwo: HasFormatter
 
-docOne = new Invoice('yoshi', 'webwork', 390)
-docTwo = new Payment('mario', 'plumbing work', 490)
 
-let docs: HasFormatter[] = [];
-docs.push(docOne)
-docs.push(docTwo)
 
-console.log(docs)
+const form = document.querySelector('.new-item-form') as HTMLFormElement
+const type = document.querySelector('#type') as HTMLSelectElement
+const tofrom = document.querySelector('#tofrom') as HTMLInputElement
+const details = document.querySelector('#details') as HTMLInputElement
+const amount = document.querySelector('#amount') as HTMLInputElement
 
-const InvOne = new Invoice('mario', 'work on the mario website', 250)
-const InvTwo = new Invoice('luigi', 'work on the luigi website', 300)
+// List template instance
+const ul = document.querySelector('ul')!;
+const list = new listTemplate(ul)
 
-let Invoices: Invoice[] = [];
-Invoices.push(InvOne, InvTwo)
-console.log(Invoices);
 
-Invoices.forEach(inv => {
-  console.log(inv.client, inv.amount, inv.format())
+form.addEventListener('submit', (e: Event) => {
+  e.preventDefault()
+
+  let doc: HasFormatter;
+
+  if (type.value === 'invoice') {
+    doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber)
+  } else {
+    doc = new Payment(tofrom.value, details.value, amount.valueAsNumber)
+  }
+
+  list.render(doc, type.value, 'end')
 })
