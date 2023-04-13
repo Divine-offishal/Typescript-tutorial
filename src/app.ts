@@ -21,12 +21,14 @@ const list = new listTemplate(ul)
 form.addEventListener('submit', (e: Event) => {
   e.preventDefault()
 
+  let values: [string, string, number] = [tofrom.value, details.value, amount.valueAsNumber]
+
   let doc: HasFormatter;
 
   if (type.value === 'invoice') {
-    doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber)
+    doc = new Invoice(...values)
   } else {
-    doc = new Payment(tofrom.value, details.value, amount.valueAsNumber)
+    doc = new Payment(...values)
   }
 
   list.render(doc, type.value, 'end')
@@ -42,23 +44,30 @@ let docOne = addUID({name: 'yoshi', age: 40})
 
 console.log(docOne.name)
 
+enum ReasourceType { BOOK, AUTHOR, FILM, DIRECTOR, PERSON }
 
 interface Reasource<T> {
   uid: number;
-  reasourseName: string;
+  reasourseName: ReasourceType;
   data: T;
 }
 
 const docThree: Reasource<object> = {
   uid: 1,
-  reasourseName: 'person',
+  reasourseName: ReasourceType.BOOK,
   data: {name: 'shawn'}
 }
 
 const docFour: Reasource<string[]> = {
   uid: 2,
-  reasourseName: 'shopping list',
+  reasourseName: ReasourceType.PERSON,
   data: ['bread', 'milk']
 }
 
-console.log(docThree, docFour);
+let arr = ['ryu', 25, true]
+arr[0] = false
+
+let tup: [string, number, boolean] = ['ryu', 25, true]
+
+let student: [string, number];
+student = ['chun-li', 2883]

@@ -244,3 +244,33 @@ const docThree: Reasource<object> = {
   data: {name: 'shawn'}
 }
 ```
+
+## ENUMS
+ This allows us to store a set of constant or keywords and associate them with a numeric value
+  ```
+  enum ReasourceType { BOOK, AUTHOR, FILM, DIRECTOR, PERSON }
+
+  interface Reasource<T> {
+    uid: number;
+    reasourseName: ReasourceType;  //This is where the enum is applied
+    data: T;
+  }
+
+  const docThree: Reasource<object> = {
+    uid: 1,
+    reasourseName: ReasourceType.BOOK,  //This is the usage of the enums
+    data: {name: 'shawn'}
+  }
+  ```
+  _console.log will show that the reasourse name is a number because each item in the object represents a number._
+
+
+## TUPLES
+- They are like arrays and use array methods
+- The types of data in a tuple is fixed once it is being initialized
+
+```
+let tup: [string, number, boolean] = ['ryu', 25, true]
+```
+
+Now the types of the properties of the array cannot be changed
