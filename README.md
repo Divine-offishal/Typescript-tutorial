@@ -179,3 +179,25 @@ Shortcut:
 ```
 
 ## INTERFACES
+These are rules or a strict template which when defined and tied to an object, makes sure that the object follows the structure which is stated in the interface e.g:
+
+```
+interface isPerson {
+  name: string;
+  age: number;
+  speak(a: string): void;
+  spend(a: number): number;
+}
+
+const me: isPerson = {
+  name: 'shawn',
+  age: 30,
+  speak(text: string): void {
+    console.log(text);
+  },
+  spend(amount: number): number {
+    console.log('1 spent', amount)
+    return amount
+  }
+}
+```
