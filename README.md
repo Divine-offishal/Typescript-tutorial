@@ -119,3 +119,63 @@ OR
 ```
 
 _There is also an event type that can be passed into event parameters_
+
+
+## CLASSES
+- You can create a class and bind its types inside the constructor: 
+```
+  class Invoice {
+  client: string;
+  details: string;
+  amount: number;
+
+  constructor(c: string, d: string, a: number){
+    this.client = c
+    this.details = d
+    this.amount = a
+  }
+
+  format() {
+    return `${this.client} owes £${this.amount} for ${this.details}`
+  }
+}
+```
+
+- You can also work with arrays and make sure that only objects created with a particular class can be pushed to the array: 
+```
+const InvOne = new Invoice('mario', 'work on the mario website', 250)
+const InvTwo = new Invoice('luigi', 'work on the luigi website', 300)
+
+let Invoices: Invoice[] = [];
+Invoices.push(InvOne, InvTwo)
+```
+
+- We have three different types of modifiers: public, private and readonly. These modifiers determine if and how a class property can be modified
+```
+class Invoice {
+  readonly client: string;
+  private details: string;
+  public amount: number;
+
+  constructor(c: string, d: string, a: number){
+    this.client = c
+    this.details = d
+    this.amount = a
+  }
+
+  format() {
+    return `${this.client} owes £${this.amount} for ${this.details}`
+  }
+}
+```
+
+Shortcut: 
+```
+ constructor(
+    readonly client: string,
+    private details: string,
+    public amount: number
+  ){}
+```
+
+## INTERFACES

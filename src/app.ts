@@ -1,30 +1,12 @@
-// const anchor = document.querySelector('a')!
+import { Invoice } from './Classes/invoice.js'
 
-// if (anchor) {
-//   console.log(anchor.href)
-  
-// }
+const InvOne = new Invoice('mario', 'work on the mario website', 250)
+const InvTwo = new Invoice('luigi', 'work on the luigi website', 300)
 
-// console.log(anchor.href)
+let Invoices: Invoice[] = [];
+Invoices.push(InvOne, InvTwo)
+console.log(Invoices);
 
-// Form
-const form = document.querySelector('.new-item-form') as HTMLFormElement
-// console.log(form.children)
-
-// Input
-const type = document.querySelector('#type') as HTMLSelectElement
-const tofrom = document.querySelector('#tofrom') as HTMLInputElement
-const details = document.querySelector('#details') as HTMLInputElement
-const amount = document.querySelector('#amount') as HTMLInputElement
-
-
-form.addEventListener('submit', (e: Event) => {
-  e.preventDefault();
-
-  console.log(
-    type.value,
-    tofrom.value,
-    details.value,
-    amount.valueAsNumber
-  )
+Invoices.forEach(inv => {
+  console.log(inv.client, inv.amount, inv.format())
 })
