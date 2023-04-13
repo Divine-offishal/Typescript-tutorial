@@ -201,3 +201,46 @@ const me: isPerson = {
   }
 }
 ```
+
+## GENERICS
+- This allows us to create reusable blocks of code which can be used with different types:
+```
+  const addUID = (obj: object) => {
+    let uid = Math.floor(Math.random() * 100);
+    return {...obj, uid}
+  }
+
+  let docOne = addUID({name: 'yoshi', age: 40})
+
+  console.log(docOne)
+```
+
+From the code above we cannot access the object properties returned from addUID. So we introduce generics:
+```
+const addUID = <T extends object>(obj: T) => {
+  let uid = Math.floor(Math.random() * 100);
+  return {...obj, uid}
+}
+
+let docOne = addUID({name: 'yoshi', age: 40})
+
+console.log(docOne.name)
+```
+
+The generics <T> captures the properties and makes them accessable 
+
+### Generics with interfaces
+
+```
+interface Reasource<T> {
+  uid: number;
+  reasourseName: string;
+  data: T;
+}
+
+const docThree: Reasource<object> = {
+  uid: 1,
+  reasourseName: 'person',
+  data: {name: 'shawn'}
+}
+```
