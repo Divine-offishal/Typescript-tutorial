@@ -78,3 +78,44 @@ _A function returns void as default_
     console.log()
   }
 ```
+
+## Function Signatures
+- To explicitly declare function parameter and return types we use function signatures e.g
+```
+  let greet: ( name: string, age: number) => void
+
+  greet = ( name: string, age: number) => {
+    console.log('Hello world')
+  }
+```
+
+## DOM Interactions and type casting
+- When grabbing an element from the html document, you can't access its property by default because typescript expects it to return null. There are two ways to fix this:
+
+```
+  const anchor = document.querySelector('a')
+
+  if (anchor) {
+    console.log(anchor.href)
+    
+  }
+```
+
+OR
+
+```
+  const anchor = document.querySelector('a')!
+
+  console.log(anchor.href)
+```
+
+- If the html element is not being grabbed directly using its name but using classes or id, we can cast its type(type of html element) in order to access its properties: 
+
+```
+  const form = document.querySelector('.new-item-form') as HTMLFormElement
+  const type = document.querySelector('#type') as HTMLSelectElement
+  const tofrom = document.querySelector('#tofrom') as HTMLInputElement
+
+```
+
+_There is also an event type that can be passed into event parameters_
